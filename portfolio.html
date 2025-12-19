@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Samuel</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="bg-orbs">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">Samuel</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="page-header">
+      <h1>Portfolio</h1>
+      <p>A snapshot of my projects, music, and achievements.</p>
+    </section>
+
+    <!-- Coding Projects -->
+    <section class="skills reveal">
+      <h2>Coding Projects</h2>
+      <div class="skill-grid">
+        <!-- Spotify downloader -->
+        <article class="card project-card">
+          <img src="assets/spotify-downloader.png" alt="Spotify playlist/album downloader" />
+          <div class="project-content">
+            <h3>Spotify Playlist & Album Downloader</h3>
+            <p>
+              A Python tool that takes a Spotify playlist or album link and automatically
+              downloads all the tracks with proper titles and organization.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/yourusername/spotify-downloader" target="_blank" class="chip">
+                View Code
+              </a>
+              <a href="https://youtu.be/your_demo_video" target="_blank" class="chip chip-outline">
+                Watch Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- GDSC Hackathon project -->
+        <article class="card project-card">
+          <img src="assets/gdsc-hackathon.png" alt="GDSC Hackathon smart traffic system" />
+          <div class="project-content">
+            <h3>AI-Assisted Smart Traffic Light System</h3>
+            <p>
+              Built during the GDSC Hackathon: a visual tracking traffic light system that
+              counts vehicles per lane and dynamically allocates green time to reduce jams.
+            </p>
+            <div class="project-links">
+              <span class="chip chip-outline">Team Project</span>
+              <!-- Optional: add GitHub / demo links if you have them -->
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Music / YouTube -->
+    <section class="skills reveal">
+      <h2>Music & YouTube</h2>
+      <div class="skill-grid">
+        <article class="card">
+          <h3>@sammycybertron</h3>
+          <p>
+            I compose and upload music that often inspires my coding projects and vice versa.
+          </p>
+          <div class="project-links">
+            <a href="https://www.youtube.com/@sammycybertron" target="_blank" class="chip">
+              Visit Channel
+            </a>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Channel Preview</h3>
+          <div class="music-embed">
+            <!-- Replace with a favourite or recent upload -->
+            <iframe
+              src="https://www.youtube.com/embed/viKr5mji4SE"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="skills reveal">
+      <h2>Certificates</h2>
+      <div class="skill-grid">
+        <article class="card">
+          <h3>Course / Platform Name</h3>
+          <p>Short line about what you learned or the skills you gained.</p>
+        </article>
+        <article class="card">
+          <h3>Another Certificate</h3>
+          <p>Data structures, Python basics, or any relevant online course.</p>
+        </article>
+        <!-- Add more cards as you get more certificates -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Samuel. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
