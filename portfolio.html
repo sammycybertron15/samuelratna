@@ -58,9 +58,14 @@
           </div>
         </article>
 
-        <!-- GDSC Hackathon project -->
+        <!-- GDSC Hackathon project (click to fullscreen) -->
         <article class="card project-card">
-          <img src="assets/1.jpg" alt="GDSC Hackathon smart traffic system" />
+          <img
+            src="assets/1.jpg"
+            alt="GDSC Hackathon smart traffic system"
+            class="project-thumb lightbox-trigger"
+            data-full="assets/1.jpg"
+          />
           <div class="project-content">
             <h3>AI-Assisted Smart Traffic Light System</h3>
             <p>
@@ -69,7 +74,6 @@
             </p>
             <div class="project-links">
               <span class="chip chip-outline">Team Project</span>
-              <!-- Optional: add GitHub / demo links if you have them -->
             </div>
           </div>
         </article>
@@ -94,7 +98,6 @@
         <article class="card">
           <h3>Channel Preview</h3>
           <div class="music-embed">
-            <!-- Replace with a favourite or recent upload -->
             <iframe
               src="https://www.youtube.com/embed/viKr5mji4SE"
               title="YouTube video player"
@@ -107,31 +110,40 @@
       </div>
     </section>
 
-    <!-- Certificates -->
+    <!-- Certificates (click to fullscreen) -->
     <section class="skills reveal">
-  <h2>Certificates</h2>
-  <div class="skill-grid">
-    <article class="card project-card">
-      <img src="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg" alt="Java course certificate" class="project-thumb" />
-      <div class="project-content">
-        <h3>Java Course / Udemy</h3>
-        <p>Java course I completed that helped me a lot when I was just starting coding.</p>
-      </div>
-    </article>
+      <h2>Certificates</h2>
+      <div class="skill-grid">
+        <article class="card project-card">
+          <img
+            src="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg"
+            alt="Java course certificate"
+            class="project-thumb lightbox-trigger"
+            data-full="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg"
+          />
+          <div class="project-content">
+            <h3>Java Course / Udemy</h3>
+            <p>Java course I completed that helped me a lot when I was just starting coding.</p>
+          </div>
+        </article>
 
-    <article class="card project-card">
-      <img src="assets/Screenshot 2025-11-26 210049.png" alt="MATLAB certificate" class="project-thumb" />
-      <div class="project-content">
-        <h3>MATLAB Certificate</h3>
-        <p>MATLAB course completed as part of an ECSE assignment.</p>
+        <article class="card project-card">
+          <img
+            src="assets/Screenshot 2025-11-26 210049.png"
+            alt="MATLAB certificate"
+            class="project-thumb lightbox-trigger"
+            data-full="assets/Screenshot 2025-11-26 210049.png"
+          />
+          <div class="project-content">
+            <h3>MATLAB Certificate</h3>
+            <p>MATLAB course completed as part of an ECSE assignment.</p>
+          </div>
+        </article>
       </div>
-    </article>
-  </div>
-</section>
-
+    </section>
   </main>
-  
-   <!-- FOOTER -->
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
       <p>© 2025 Samuel. All rights reserved.</p>
@@ -145,10 +157,11 @@
     </div>
   </footer>
 
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="Expanded view" />
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-
