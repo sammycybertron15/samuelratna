@@ -773,4 +773,28 @@ main {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* Lightbox overlay */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+}
+
+/* Make clickable images show pointer */
+.lightbox-trigger {
+  cursor: zoom-in;
+}
 }
