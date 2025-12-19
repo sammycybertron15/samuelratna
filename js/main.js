@@ -40,7 +40,6 @@ if (revealSections.length > 0 && "IntersectionObserver" in window) {
   revealSections.forEach(sec => sec.classList.add("reveal-visible"));
 }
 
-
 // === CONTACT FORM VALIDATION ===
 const form = document.getElementById("contact-form");
 
@@ -105,6 +104,35 @@ if (form) {
     } else {
       status.textContent = "Please fix the errors above.";
       status.style.color = "#f97316";
+    }
+  });
+}
+
+// === SIMPLE IMAGE LIGHTBOX ===
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
+
+if (lightbox && lightboxImg && lightboxTriggers.length > 0) {
+  lightboxTriggers.forEach(img => {
+    img.addEventListener("click", () => {
+      const fullSrc = img.dataset.full || img.src;
+      lightboxImg.src = fullSrc;
+      lightbox.style.display = "flex";
+    });
+  });
+
+  // Close on click anywhere
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+    lightboxImg.src = "";
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && lightbox.style.display === "flex") {
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
     }
   });
 }
