@@ -15,10 +15,10 @@
   </div>
 
   <header class="navbar">
-<div class="logo">
-  <span class="logo-mark">S</span>
-  <span class="logo-text">Samuel</span>
-</div>
+    <div class="logo">
+      <span class="logo-mark">S</span>
+      <span class="logo-text">Samuel</span>
+    </div>
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -58,29 +58,30 @@
         </p>
 
         <h3>Interests & Hobbies</h3>
-<div class="interests-grid">
-  <div class="interest-card">
-    Building small apps and tools for real use cases
-  </div>
-  <div class="interest-card">
-    Exploring web development and user interfaces
-  </div>
-  <div class="interest-card">
-    Composing and recording music for YouTube
-  </div>
-  <div class="interest-card">
-    Video Editing and Art Design/Sketching 
-  </div>
-  <div class="interest-card">
-    Experimenting with sound design and creative projects
-  </div>
-</div>
-
+        <div class="interests-grid">
+          <div class="interest-card">
+            Building small apps and tools for real use cases
+          </div>
+          <div class="interest-card">
+            Exploring web development and user interfaces
+          </div>
+          <div class="interest-card">
+            Composing and recording music for YouTube
+          </div>
+          <div class="interest-card">
+            Video Editing and Art Design/Sketching
+          </div>
+          <div class="interest-card">
+            Experimenting with sound design and creative projects
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-   <!-- FOOTER -->
+  
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
       <p>© 2025 Samuel. All rights reserved.</p>
@@ -94,9 +95,25 @@
     </div>
   </footer>
 
+  <!-- MINI MUSIC PLAYER (About page: "When I Come Around") -->
+  <div
+    class="mini-player"
+    data-track="assets/When I Come Around.mp3"
+    data-title="Green Day - When I Come Around"
+  >
+    <span class="mini-title"></span>
+
+    <div class="mini-cd-wrapper">
+      <img src="assets/cd.png" alt="CD" class="mini-cd" id="mini-cd" />
+    </div>
+
+    <button id="mini-music-toggle" class="mini-play-btn" aria-label="Play or pause">
+      ▶
+    </button>
+
+    <audio id="mini-audio" loop></audio>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
