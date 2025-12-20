@@ -381,7 +381,7 @@ main {
   gap: 0.5rem;
 }
 
-.skill-meters li span {
+skill-meters li span {
   font-size: 0.85rem;
   color: var(--muted);
 }
@@ -417,7 +417,7 @@ main {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
   font-size: 0.9rem;
   color: var(--muted);
-  flex: 1 1 220px; /* responsive boxes */
+  flex: 1 1 220px;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
@@ -425,32 +425,6 @@ main {
   transform: translateY(-3px);
   box-shadow: 0 16px 35px rgba(0, 0, 0, 0.85);
 }
-
-.interests-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.75rem;
-}
-
-.interest-card {
-  background: radial-gradient(circle at top left, var(--card), #050608);
-  border-radius: 12px;
-  padding: 0.9rem 1.1rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-  font-size: 0.9rem;
-  color: var(--muted);
-  flex: 1 1 220px; /* makes responsive boxes */
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.interest-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.85);
-}
-
-
 
 .skill-grid,
 .grid-gallery {
@@ -683,7 +657,7 @@ main {
 
 @keyframes blob {
   from { transform: rotate(0deg) scale(1); }
-  to { transform: rotate(360deg) scale(1.1); }
+  to   { transform: rotate(360deg) scale(1.1); }
 }
 
 @keyframes orb-float {
@@ -773,8 +747,9 @@ main {
     flex-direction: column;
     align-items: flex-start;
   }
+}
 
-  /* Lightbox overlay */
+/* Lightbox overlay – works on all screen sizes */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -783,7 +758,6 @@ main {
   align-items: center;
   justify-content: center;
   z-index: 40;
-  cursor: zoom-out;
 }
 
 .lightbox img {
@@ -793,8 +767,97 @@ main {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
-/* Make clickable images show pointer */
-.lightbox-trigger {
-  cursor: zoom-in;
+/* Close “X” button */
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+  background: transparent;
+  border: none;
+  color: #f9fafb;
+  font-size: 2rem;
+  cursor: pointer;
 }
+
+/* Elements that trigger the lightbox */
+.lightbox-trigger {
+  cursor: pointer;
+}
+
+/* === MINI MUSIC PLAYER === */
+.mini-player {
+  position: fixed !important;
+  inset: auto 1.5rem 1.5rem auto; /* bottom-right corner */
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.9rem;
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  /* let content decide width; no fixed max-width */
+}
+
+/* title: takes zero space when hidden, expands when visible */
+.mini-title {
+  max-width: 0;                    /* collapsed = no horizontal space */
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0;
+  pointer-events: none;            /* never block clicks */
+  transition: max-width 0.4s ease, opacity 0.4s ease;
+}
+
+/* when JS adds .visible, pill widens smoothly */
+.mini-title.visible {
+  max-width: 180px;                /* adjust if titles are longer */
+  opacity: 1;
+}
+
+.mini-cd-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mini-cd {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  transform-origin: center;
+}
+
+/* spinning state */
+.mini-cd.is-playing {
+  animation: mini-cd-spin 4s linear infinite;
+}
+
+@keyframes mini-cd-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.mini-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent-soft);
+  color: #111;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;                  /* keeps button from shrinking */
 }
