@@ -56,24 +56,22 @@
                 View Code
               </a>
               <a
-  href="https://drive.google.com/drive/folders/1KBfQH16QYlzOwNTx31gLFbBaDkAV9o3T?usp=sharing"
-  target="_blank"
-  class="chip chip-outline"
->
-  Watch Demo
-</a>
-
+                href="https://drive.google.com/drive/folders/1KBfQH16QYlzOwNTx31gLFbBaDkAV9o3T?usp=sharing"
+                target="_blank"
+                class="chip chip-outline"
+              >
+                Watch Demo
+              </a>
             </div>
           </div>
         </article>
 
-        <!-- GDSC Hackathon project (click to fullscreen) -->
+        <!-- GDSC Hackathon project -->
         <article class="card project-card">
           <img
             src="assets/1.jpg"
             alt="GDSC Hackathon smart traffic system"
-            class="project-thumb lightbox-trigger"
-            data-full="assets/1.jpg"
+            class="project-thumb"
           />
           <div class="project-content">
             <h3>AI-Assisted Smart Traffic Light System</h3>
@@ -83,6 +81,13 @@
             </p>
             <div class="project-links">
               <span class="chip chip-outline">Team Project</span>
+              <button
+                type="button"
+                class="chip lightbox-trigger"
+                data-full="assets/1.jpg"
+              >
+                View Enlarged
+              </button>
             </div>
           </div>
         </article>
@@ -119,7 +124,7 @@
       </div>
     </section>
 
-    <!-- Certificates (click to fullscreen) -->
+    <!-- Certificates -->
     <section class="skills reveal">
       <h2>Certificates</h2>
       <div class="skill-grid">
@@ -127,12 +132,20 @@
           <img
             src="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg"
             alt="Java course certificate"
-            class="project-thumb lightbox-trigger"
-            data-full="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg"
+            class="project-thumb"
           />
           <div class="project-content">
             <h3>Java Course / Udemy</h3>
             <p>Java course I completed that helped me a lot when I was just starting coding.</p>
+            <div class="project-links">
+              <button
+                type="button"
+                class="chip lightbox-trigger"
+                data-full="assets/UC-bae813db-b6e4-4394-af11-d367d4783e20.jpg"
+              >
+                View Enlarged
+              </button>
+            </div>
           </div>
         </article>
 
@@ -140,12 +153,20 @@
           <img
             src="assets/Screenshot 2025-11-26 210049.png"
             alt="MATLAB certificate"
-            class="project-thumb lightbox-trigger"
-            data-full="assets/Screenshot 2025-11-26 210049.png"
+            class="project-thumb"
           />
           <div class="project-content">
             <h3>MATLAB Certificate</h3>
             <p>MATLAB course completed as part of an ECSE assignment.</p>
+            <div class="project-links">
+              <button
+                type="button"
+                class="chip lightbox-trigger"
+                data-full="assets/Screenshot 2025-11-26 210049.png"
+              >
+                View Enlarged
+              </button>
+            </div>
           </div>
         </article>
       </div>
@@ -168,10 +189,29 @@
 
   <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox">
+    <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
     <img id="lightbox-img" src="" alt="Expanded view" />
+  </div>
+
+  <!-- MINI MUSIC PLAYER (Contact page: "Ride Into The Sun") -->
+  <div
+    class="mini-player"
+    data-track="assets/Ride Into The Sun.mp3"
+    data-title="The Velvet Underground - Ride Into The Sun( 1969 Demo )"
+  >
+    <span class="mini-title"></span>
+
+    <div class="mini-cd-wrapper">
+      <img src="assets/cd.png" alt="CD" class="mini-cd" id="mini-cd" />
+    </div>
+
+    <button id="mini-music-toggle" class="mini-play-btn" aria-label="Play or pause">
+      ▶
+    </button>
+
+    <audio id="mini-audio" loop></audio>
   </div>
 
   <script src="js/main.js"></script>
 </body>
 </html>
-
