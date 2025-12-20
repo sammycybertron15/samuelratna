@@ -36,7 +36,6 @@ if (revealSections.length > 0 && "IntersectionObserver" in window) {
 
   revealSections.forEach(sec => observer.observe(sec));
 } else {
-  // Fallback: if no IntersectionObserver, just show all
   revealSections.forEach(sec => sec.classList.add("reveal-visible"));
 }
 
@@ -111,28 +110,109 @@ if (form) {
 // === SIMPLE IMAGE LIGHTBOX ===
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightbox-img");
+const lightboxClose = document.querySelector(".lightbox-close");
 const lightboxTriggers = document.querySelectorAll(".lightbox-trigger");
 
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.style.display = "none";
+  if (lightboxImg) lightboxImg.src = "";
+}
+
 if (lightbox && lightboxImg && lightboxTriggers.length > 0) {
-  lightboxTriggers.forEach(img => {
-    img.addEventListener("click", () => {
-      const fullSrc = img.dataset.full || img.src;
+  lightboxTriggers.forEach(el => {
+    el.addEventListener("click", () => {
+      const fullSrc = el.dataset.full;
+      if (!fullSrc) return;
       lightboxImg.src = fullSrc;
       lightbox.style.display = "flex";
     });
   });
 
-  // Close on click anywhere
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
-    lightboxImg.src = "";
+  if (lightboxClose) {
+    lightboxClose.addEventListener("click", closeLightbox);
+  }
+
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
   });
 
-  // Close on Escape
   document.addEventListener("keydown", e => {
     if (e.key === "Escape" && lightbox.style.display === "flex") {
-      lightbox.style.display = "none";
-      lightboxImg.src = "";
+      closeLightbox();
     }
+  });
+}
+
+// === MINI MUSIC PLAYER (per page) ===
+const miniPlayer = document.querySelector(".mini-player");
+const miniAudio = document.getElementById("mini-audio");
+const miniToggle = document.getElementById("mini-music-toggle");
+const miniCd = document.getElementById("mini-cd");
+const miniTitleSpan = document.querySelector(".mini-title");
+
+if (miniPlayer && miniAudio && miniToggle && miniCd) {
+  const trackSrc = miniPlayer.dataset.track;
+  const trackTitle = miniPlayer.dataset.title || "";
+
+  if (trackSrc) miniAudio.src = trackSrc;
+  if (miniTitleSpan && trackTitle) miniTitleSpan.textContent = trackTitle;
+
+  let isPlaying = false;
+  let hasShownTitle = false;
+
+  const updateMiniUI = () => {
+    miniToggle.textContent = isPlaying ? "❚❚" : "▶";
+    miniCd.classList.toggle("is-playing", isPlaying);
+  };
+
+  const showTitleOnce = () => {
+    if (!miniTitleSpan || hasShownTitle || !trackTitle) return;
+    hasShownTitle = true;
+    // this class now triggers the max-width animation in CSS
+    miniTitleSpan.classList.add("visible");
+    setTimeout(() => {
+      miniTitleSpan.classList.remove("visible");
+    }, 3000);
+  };
+
+  window.addEventListener("load", () => {
+    if (!trackSrc) return;
+    miniAudio.play().then(() => {
+      isPlaying = true;
+      updateMiniUI();
+      showTitleOnce();
+    }).catch(() => {
+      isPlaying = false;
+      updateMiniUI();
+    });
+  });
+
+  miniToggle.addEventListener("click", () => {
+    if (!trackSrc) return;
+
+    if (!isPlaying) {
+      miniAudio.play().then(() => {
+        isPlaying = true;
+        updateMiniUI();
+        showTitleOnce();
+      }).catch(() => {});
+    } else {
+      miniAudio.pause();
+      isPlaying = false;
+      updateMiniUI();
+    }
+  });
+
+  miniAudio.addEventListener("play", () => {
+    isPlaying = true;
+    updateMiniUI();
+  });
+
+  miniAudio.addEventListener("pause", () => {
+    isPlaying = false;
+    updateMiniUI();
   });
 }
